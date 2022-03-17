@@ -1,0 +1,342 @@
+{
+  "Name": "Linkedin Jailbreak",
+  "CreationDate": "2022-3-3",
+  "Commands": [
+    {
+      "Command": "",
+      "Target": "LINKEDIN JAILBREAK",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "",
+      "Target": "BY JEINNER CAMPOS",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "prompt",
+      "Target": "Add Inmail's title@delete this first",
+      "Value": "InmailsTitle",
+      "Description": ""
+    },
+    {
+      "Command": "prompt",
+      "Target": "Add Inmail's MESSAGE@delete this first",
+      "Value": "InmailsMessage",
+      "Description": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "Alrighty, you should get some coffee. Sit back and see me taking care of this for you. ;)",
+      "Value": "#shownotification",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${InmailsMessage}.replace(/(\\\\n)/gm, \"\\n\")",
+      "Value": "RemoveN",
+      "Description": "REMOVE \\\\N and convert it back to \\N"
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${RemoveN}.replace(/(\\\\r)/gm, \"\")",
+      "Value": "RemoveR",
+      "Description": "REMOVE \\\\r"
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${RemoveR}.replace(/(\\\\u2019)/gm, \"\\'\")",
+      "Value": "RemoveQ",
+      "Description": "REMOVE Single Quote to \\'"
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${RemoveQ}.replace(/(\\/)/gm, \"\")",
+      "Value": "RemoveX",
+      "Description": "REMOVE \\/ and convert it back to /"
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${RemoveX}.replace(/(\\\\)/gm, \"/\")",
+      "Value": "FInmailsMessage",
+      "Description": "REMOVE \\/ and convert it back to /"
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[1]/div/nav/span/span[1]",
+      "Value": "rawquantofcandidates",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return (${rawquantofcandidates}.split(\"of \")[1])",
+      "Value": "formattotalcandidates",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${formattotalcandidates}.replace(/(\\,)/gm, \"\")",
+      "Value": "totalcandidates",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${rawquantofcandidates}.split(\" of\")[0]",
+      "Value": "rawinitialcandidates",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${rawinitialcandidates}.replace(/(\\,)/gm, \"\")",
+      "Value": "initialcandidates",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${initialcandidates})",
+      "Value": "initialcandidatenum",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${totalcandidates})",
+      "Value": "totalcandidatenum",
+      "Description": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "${initialcandidatenum} \" AND \" ${totalcandidatenum}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[2]/span/div/div/header/section/div[1]/div[2]/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[2]/span/button",
+      "Value": "",
+      "Targets": [
+        "id=ember41994",
+        "xpath=//*[@id=\"ember41994\"]",
+        "xpath=//button[@id='ember41994']",
+        "xpath=//div/div/div/div/div/div/div/div/div/div/div/div/div[2]/span/button",
+        "css=#ember41994"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "-START OF PAGE LOOP-",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${initialcandidatenum} < ${totalcandidatenum}",
+      "Value": "",
+      "Description": "start WHILE bucle"
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[2]/span/div/div/header/section/div[1]/div[2]/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[2]/span/button",
+      "Value": "checkbutton",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${checkbutton}==\"Send message disabled\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "OUCH! This candidate doesn't allow sending messages.\\n\\nBAH! Moving to the next candidate!",
+      "Value": "#shownotification",
+      "Description": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1000",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[1]/div/nav/a[2]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "else",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "2000",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[2]/span/div/div/header/section/div[1]/div[2]/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[2]/span/button",
+      "Value": "",
+      "Targets": [
+        "id=ember41994",
+        "xpath=//*[@id=\"ember41994\"]",
+        "xpath=//button[@id='ember41994']",
+        "xpath=//div/div/div/div/div/div/div/div/div/div/div/div/div[2]/span/button",
+        "css=#ember41994"
+      ],
+      "Description": "Click ENVELOPE button"
+    },
+    {
+      "Command": "pause",
+      "Target": "500",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[2]/div/div/div/div/section/div/form/div[2]/div[1]/div[2]/input",
+      "Value": "${InmailsTitle}",
+      "Description": "Add the Title"
+    },
+    {
+      "Command": "pause",
+      "Target": "500",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[2]/div/div/div/div/section/div/form/div[2]/div[2]/div[1]/div/textarea",
+      "Value": "${FInmailsMessage}",
+      "Description": "Add the message"
+    },
+    {
+      "Command": "pause",
+      "Target": "500",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[2]/div/div/div/div/section/div/form/section/div[2]/div/button",
+      "Value": "",
+      "Description": "Click SEND message button"
+    },
+    {
+      "Command": "pause",
+      "Target": "500",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[1]/div/nav/a[2]",
+      "Value": "",
+      "Targets": [
+        "linkText=Link to next candidate",
+        "id=ember16010",
+        "xpath=//*[@id=\"ember16010\"]",
+        "xpath=//a[@id='ember16010']",
+        "xpath=//a[2]",
+        "css=#ember16010"
+      ],
+      "Description": "Next candidate"
+    },
+    {
+      "Command": "pause",
+      "Target": "2000",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[1]/div/nav/span/span[1]",
+      "Value": "rawquantofcandidates",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${rawquantofcandidates}.split(\" of\")[0]",
+      "Value": "initialcandidates",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${initialcandidates})",
+      "Value": "initialcandidatenum",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number ((${initialcandidates}/${totalcandidates}) *100).toFixed(2)",
+      "Value": "percentage",
+      "Description": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "${percentage}% processed",
+      "Value": "#shownotification",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "-END OF LOOP-",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[2]/span/div/div/header/section/div[1]/div[2]/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[2]/span/button",
+      "Value": "",
+      "Targets": [
+        "id=ember41994",
+        "xpath=//*[@id=\"ember41994\"]",
+        "xpath=//button[@id='ember41994']",
+        "xpath=//div/div/div/div/div/div/div/div/div/div/div/div/div[2]/span/button",
+        "css=#ember41994"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[2]/div/div/div/div/section/div/form/div[2]/div[1]/div[2]/input",
+      "Value": "${InmailsTitle}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "xpath=/html/body/div[3]/div[6]/base-slidein-container/div/div/div/div/div[2]/div/div/div/div/section/div/form/div[2]/div[2]/div[1]/div/textarea",
+      "Value": "${FInmailsMessage}",
+      "Description": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "500",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "Script Successfully Completed!",
+      "Value": "#shownotification",
+      "Description": ""
+    }
+  ]
+}
+
